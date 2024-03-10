@@ -1,6 +1,0 @@
-package mobileshopproductproducer;
-
-public interface MobileShopProductService {
-
-	void addProduct(String brand, String model, String year, int ram, int storage, double retailPrice, int stock);
-}

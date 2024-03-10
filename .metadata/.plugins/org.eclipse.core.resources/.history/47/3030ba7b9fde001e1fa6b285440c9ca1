@@ -1,5 +1,0 @@
-package mobileshopproductproducer;
-
-public interface MobileShopProductService {
-
-}
