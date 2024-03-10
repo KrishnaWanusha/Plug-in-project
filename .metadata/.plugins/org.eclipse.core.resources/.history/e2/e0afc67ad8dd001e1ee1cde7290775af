@@ -1,0 +1,32 @@
+package mobileshopproductproducer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import productmodel.Product;
+
+public class MobileShopProductServiceImpl implements MobileShopProductService {
+
+	List<Product> products = new ArrayList<Product>();
+	
+	public void addProduct(String brand, String model, String year, int ram, int storage, double retailPrice, int stock) {
+		if (!products.isEmpty()) {
+	        Product lastProduct = products.get(products.size() - 1);
+	        int id = lastProduct.getId() + 1;
+	        Product newProduct = new Product(id, brand, model, year, ram, storage, retailPrice, stock);
+	        products.add(newProduct);
+	    } else {
+	        Product newProduct = new Product(1, brand, model, year, ram, storage, retailPrice, stock);
+	        products.add(newProduct);
+	    }
+	}
+	
+	public List<Product> getProducts() {
+		return products;
+	}
+	
+	public void restockProduct(Product product, int qty) {
+		product.setStock(qty);
+	}
+	
+}

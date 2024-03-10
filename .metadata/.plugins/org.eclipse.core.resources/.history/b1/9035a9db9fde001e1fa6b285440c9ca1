@@ -1,0 +1,24 @@
+package mobileshopproductconsumer;
+
+import mobileshopproductproducer.MobileShopProductService;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+
+public class Activator implements BundleActivator {
+
+	ServiceReference serviceRef;
+	static MobileShopProductService mobileShopProductService;
+
+	public void start(BundleContext context) throws Exception {
+		System.out.println("****** Mobile Shop Product Consumer Started ******");
+		serviceRef = context.getServiceReference(MobileShopProductService.class.getName());
+		mobileShopProductService = (MobileShopProductService) context.getService(serviceRef);
+	}
+
+	public void stop(BundleContext context) throws Exception {
+		System.out.println("****** Mobile Shop Product Consumer Stopped ******");
+		context.ungetService(serviceRef);
+	}
+
+}

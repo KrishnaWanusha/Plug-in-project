@@ -1,0 +1,9 @@
+package mobileshopproductproducer;
+
+public class MobileShopProductServiceImpl implements MobileShopProductService {
+
+	
+	MobileShopProductServiceImpl() {
+		
+	}
+}

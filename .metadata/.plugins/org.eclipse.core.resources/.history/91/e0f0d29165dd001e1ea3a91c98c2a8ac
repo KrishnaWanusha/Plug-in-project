@@ -1,0 +1,13 @@
+package productmodel;
+
+public class Product {
+
+	private int id;
+	private String brand;
+	private String model;
+	private String year;
+	private int ram;
+	private int storage;
+	private double retailPrice;
+	
+}

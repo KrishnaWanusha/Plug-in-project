@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.pde.ui.EquinoxLauncher">
+    <booleanAttribute key="append.args" value="true"/>
+    <booleanAttribute key="automaticAdd" value="true"/>
+    <booleanAttribute key="automaticValidate" value="true"/>
+    <stringAttribute key="bootstrap" value=""/>
+    <stringAttribute key="checked" value="[NONE]"/>
+    <booleanAttribute key="clearConfig" value="true"/>
+    <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/ProductConsumer"/>
+    <booleanAttribute key="default" value="true"/>
+    <booleanAttribute key="default_auto_start" value="true"/>
+    <intAttribute key="default_start_level" value="4"/>
+    <setAttribute key="deselected_workspace_bundles"/>
+    <booleanAttribute key="includeOptional" value="true"/>
+    <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dorg.eclipse.swt.graphics.Resource.reportNonDisposed=true -Declipse.ignoreApp=true -Dosgi.noShutdown=true"/>
+    <stringAttribute key="pde.version" value="3.3"/>
+    <setAttribute key="selected_target_bundles">
+        <setEntry value="org.eclipse.equinox.app"/>
+        <setEntry value="org.eclipse.equinox.bidi"/>
+        <setEntry value="org.eclipse.equinox.common"/>
+        <setEntry value="org.eclipse.equinox.concurrent"/>
+        <setEntry value="org.eclipse.equinox.console"/>
+        <setEntry value="org.eclipse.equinox.event"/>
+        <setEntry value="org.eclipse.equinox.frameworkadmin"/>
+        <setEntry value="org.eclipse.equinox.frameworkadmin.equinox"/>
+        <setEntry value="org.eclipse.equinox.http.jetty"/>
+        <setEntry value="org.eclipse.equinox.http.registry"/>
+        <setEntry value="org.eclipse.equinox.http.servlet"/>
+        <setEntry value="org.eclipse.equinox.jsp.jasper"/>
+        <setEntry value="org.eclipse.equinox.jsp.jasper.registry"/>
+        <setEntry value="org.eclipse.equinox.launcher"/>
+        <setEntry value="org.eclipse.equinox.launcher.win32.win32.x86_64"/>
+        <setEntry value="org.eclipse.equinox.p2.artifact.repository"/>
+        <setEntry value="org.eclipse.equinox.p2.console"/>
+        <setEntry value="org.eclipse.equinox.p2.core"/>
+        <setEntry value="org.eclipse.equinox.p2.director"/>
+        <setEntry value="org.eclipse.equinox.p2.director.app"/>
+        <setEntry value="org.eclipse.equinox.p2.directorywatcher"/>
+        <setEntry value="org.eclipse.equinox.p2.discovery"/>
+        <setEntry value="org.eclipse.equinox.p2.discovery.compatibility"/>
+        <setEntry value="org.eclipse.equinox.p2.engine"/>
+        <setEntry value="org.eclipse.equinox.p2.extensionlocation"/>
+        <setEntry value="org.eclipse.equinox.p2.garbagecollector"/>
+        <setEntry value="org.eclipse.equinox.p2.jarprocessor"/>
+        <setEntry value="org.eclipse.equinox.p2.metadata"/>
+        <setEntry value="org.eclipse.equinox.p2.metadata.repository"/>
+        <setEntry value="org.eclipse.equinox.p2.operations"/>
+        <setEntry value="org.eclipse.equinox.p2.publisher"/>
+        <setEntry value="org.eclipse.equinox.p2.publisher.eclipse"/>
+        <setEntry value="org.eclipse.equinox.p2.reconciler.dropins"/>
+        <setEntry value="org.eclipse.equinox.p2.repository"/>
+        <setEntry value="org.eclipse.equinox.p2.repository.tools"/>
+        <setEntry value="org.eclipse.equinox.p2.touchpoint.eclipse"/>
+        <setEntry value="org.eclipse.equinox.p2.touchpoint.natives"/>
+        <setEntry value="org.eclipse.equinox.p2.transport.ecf"/>
+        <setEntry value="org.eclipse.equinox.p2.ui"/>
+        <setEntry value="org.eclipse.equinox.p2.ui.discovery"/>
+        <setEntry value="org.eclipse.equinox.p2.ui.importexport"/>
+        <setEntry value="org.eclipse.equinox.p2.ui.sdk"/>
+        <setEntry value="org.eclipse.equinox.p2.ui.sdk.scheduler"/>
+        <setEntry value="org.eclipse.equinox.p2.updatechecker"/>
+        <setEntry value="org.eclipse.equinox.p2.updatesite"/>
+        <setEntry value="org.eclipse.equinox.preferences"/>
+        <setEntry value="org.eclipse.equinox.registry"/>
+        <setEntry value="org.eclipse.equinox.security"/>
+        <setEntry value="org.eclipse.equinox.security.ui"/>
+        <setEntry value="org.eclipse.equinox.security.win32.x86_64"/>
+        <setEntry value="org.eclipse.equinox.simpleconfigurator"/>
+        <setEntry value="org.eclipse.equinox.simpleconfigurator.manipulator"/>
+    </setAttribute>
+    <setAttribute key="selected_workspace_bundles">
+        <setEntry value="MobileShopProductConsumer@default:default"/>
+        <setEntry value="MobileShopProductProducer@default:default"/>
+    </setAttribute>
+    <booleanAttribute key="show_selected_only" value="false"/>
+    <booleanAttribute key="tracing" value="false"/>
+    <booleanAttribute key="useCustomFeatures" value="false"/>
+    <booleanAttribute key="useDefaultConfigArea" value="true"/>
+</launchConfiguration>
