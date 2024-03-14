@@ -13,4 +13,6 @@ public interface MobileShopCustomerService {
 	public List<Customer> getCustomers();
 	
 	public void viewCustomerDetails();
+	
+	Customer getCustomerById(int id);
 }

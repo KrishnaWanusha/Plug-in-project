@@ -7,5 +7,7 @@ Bundle-Activator: mobileshopofferconsumer.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: MobileShopOfferConsumer
 Import-Package: mobileshopofferproducer,
- org.osgi.framework;version="1.3.0"
+ mobileshopproductproducer,
+ org.osgi.framework;version="1.3.0",
+ productmodel
 Bundle-ActivationPolicy: lazy

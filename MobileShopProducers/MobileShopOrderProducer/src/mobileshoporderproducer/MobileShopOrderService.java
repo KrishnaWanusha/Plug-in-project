@@ -5,8 +5,10 @@ import java.util.List;
 import ordermodel.Order;
 
 public interface MobileShopOrderService {
-	void addOrder(String item,String custName,double total);
+	int addOrder(String item,String custName,double total);
 	List<Order> getOrders();
-	void printReceipt();
+	Order getOrderById(int id);
+	void printReceipt(int orderId);
+	void displayAllOrders();
 	
 }

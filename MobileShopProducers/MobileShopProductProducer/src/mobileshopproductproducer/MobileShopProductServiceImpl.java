@@ -1,6 +1,7 @@
 package mobileshopproductproducer;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import productmodel.Product;
@@ -10,8 +11,8 @@ public class MobileShopProductServiceImpl implements MobileShopProductService {
 	List<Product> products = new ArrayList<Product>();
 	
 	public MobileShopProductServiceImpl() {
-        addProduct("Samsung", "Galaxy", "2023", 8, 128, 799.99, 15);
-        addProduct("Apple", "iPhone", "2023", 6, 64, 999.99, 10);
+        addProduct("Samsung", "S23 Ultra", "2023", 8, 128, 285000.00, 15);
+        addProduct("Apple", "iPhone 15", "2023", 6, 64, 415000.00, 10);
     }
 	
 	public void addProduct(String brand, String model, String year, int ram, int storage, double retailPrice, int stock) {
@@ -35,28 +36,51 @@ public class MobileShopProductServiceImpl implements MobileShopProductService {
 	}
 	
 	public void viewCatalogue() {
-		System.out.println(" ___________________________________________________________");
-		System.out.println("|                                                           |");
-		System.out.println("|      				M O B I L E S H O P |");
-		System.out.println("|    					CATALOGUE     			|");
-		System.out.println("|___________________________________________________________|");
-        
+		System.out.println(" ______________________________________________________________");
+		System.out.println("|                                                              |");
+		System.out.println("|                  M O B I L E   S H O P                       |");
+		System.out.println("|                         CATALOGUE                            |");
+		System.out.println("|______________________________________________________________|");
+
+        System.out.println();
+        System.out.println(" __________________________________________________________________________________");
+        System.out.println("|  ID  |   Brand   |   Model   | Year | RAM | Storage |       Price        | Stock |");
+        System.out.println("|______|___________|___________|______|_____|_________|____________________|_______|");
+
         for (Product product : products) {
-            System.out.printf("%d. %s %s (%s) - %dGB %d LKR.%.2f Stock(%d)\n",
-            		product.getId(), product.getBrand(), product.getModel(), product.getYear(),
+            System.out.printf("| %-5d| %-10s| %-10s| %-5s| %-4d| %-8d| LKR %-15.2f| %-6d|\n",
+                    product.getId(), product.getBrand(), product.getModel(), product.getYear(),
                     product.getRam(), product.getStorage(), product.getRetailPrice(), product.getStock());
         }
-        
-		
+        System.out.println("|______|___________|___________|______|_____|_________|____________________|_______|");
+        System.out.println();
 	}
 	
-	public Product getProductById(String id) {
+	public Product getProductById(int id) {
 		for (Product product: products) {
-			if (product.getId() == Integer.parseInt(id) ) {
+			if (product.getId() == id) {
 				return product;
 			}
 		}
 		return null;
+	}
+	
+	public void deleteProductById(int id) {
+		Iterator<Product> iterator = products.iterator();
+	    while (iterator.hasNext()) {
+	        Product product = iterator.next();
+	        if (product.getId() == id) {
+	            iterator.remove();
+	        }
+	    }
+	}
+	
+	public void stockUpdate(int id) {
+		for (Product product: products) {
+			if (product.getId() == id) {
+				product.setStock(product.getStock() - 1);
+			}
+		}
 	}
 	
 }

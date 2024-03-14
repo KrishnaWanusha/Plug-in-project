@@ -38,15 +38,15 @@ public class Activator implements BundleActivator {
 				System.out.println("Please enter total price : ");
 				double total =  sc.nextDouble();
 				
-				mobileShopOrderService.addOrder(item,custName,total);
+				int orderId = mobileShopOrderService.addOrder(item,custName,total);
 				System.out.println();
 
-			    mobileShopOrderService.printReceipt();
+			    mobileShopOrderService.printReceipt(orderId);
 				break;
 			}
 			case 2: {
 
-				mobileShopOrderService.printReceipt();
+				mobileShopOrderService.displayAllOrders();
 				break;
 			}
 			default: 

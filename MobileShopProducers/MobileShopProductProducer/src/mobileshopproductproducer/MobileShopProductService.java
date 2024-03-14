@@ -10,5 +10,7 @@ public interface MobileShopProductService {
 	List<Product> getProducts();
 	void restockProduct(Product product, int qty);
 	void viewCatalogue();
-	Product getProductById(String id);
+	Product getProductById(int id);
+	void deleteProductById(int id);
+	void stockUpdate(int id);
 }

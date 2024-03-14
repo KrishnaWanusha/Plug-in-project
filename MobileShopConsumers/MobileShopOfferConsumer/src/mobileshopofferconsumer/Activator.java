@@ -4,16 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import mobileshopofferproducer.MobileShopOfferService;
+import mobileshopproductproducer.MobileShopProductService;
+
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
+import productmodel.Product;
 
 public class Activator implements BundleActivator {
 
 	Scanner sc = new Scanner(System.in);
 
 	ServiceReference serviceOfferRef;
+	ServiceReference serviceProductRef;
 	static MobileShopOfferService mobileShopOfferService;
+	static MobileShopProductService mobileshopproductservice;
 
 	public void start(BundleContext context) throws Exception {
 		System.out.println("****** Mobile Shop Offer Consumer Started ******");
@@ -33,12 +38,14 @@ public class Activator implements BundleActivator {
 			switch(option) {
 			case 1: {
 				
-				List<String> applicableProducts = new ArrayList<>();
+				List<Product> applicableProducts = new ArrayList<>();
 			    boolean addMoreProducts = true;
 			    while (addMoreProducts) {
+			    	
+			    	mobileshopproductservice.viewCatalogue();
 			        System.out.println("Enter applicable product: ");
-			        String product = sc.next();
-			        applicableProducts.add(product);
+			        int product = sc.nextInt();
+			        applicableProducts.add(mobileshopproductservice.getProductById(product));
 			        
 			        // Ask user if they want to add more products
 			        System.out.println("Add more applicable products? (1: Yes, 2: No)");

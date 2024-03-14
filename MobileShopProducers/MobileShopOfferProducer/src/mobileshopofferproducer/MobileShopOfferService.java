@@ -3,10 +3,11 @@ package mobileshopofferproducer;
 import java.util.List;
 
 import offermodel.Offer;
+import productmodel.Product;
 
 public interface MobileShopOfferService {
 	
-	void addOffer(double discountPercentage, List<String> applicableProducts, boolean active);
+	void addOffer(double discountPercentage, List<Product> applicableProducts, boolean active);
 
     void viewAllOffers();
 
@@ -18,6 +19,6 @@ public interface MobileShopOfferService {
     
     Offer getOfferById(String id);
     
-    double checkDiscountForProducts(String applicableProducts);
+    double checkDiscountForProducts(Product applicableProduct);
 
 }

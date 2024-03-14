@@ -1,15 +1,16 @@
 package offermodel;
 
 import java.util.List;
+import productmodel.Product;
 
 public class Offer {
 
 	private int offerId;
     private double discountPercentage;
-    private List<String> applicableProducts;
+    private List<Product> applicableProducts;
     private boolean active;
     
-	public Offer(int offerId, double discountPercentage, List<String> applicableProducts, boolean active) {
+	public Offer(int offerId, double discountPercentage, List<Product> applicableProducts, boolean active) {
         this.offerId = offerId;
         this.discountPercentage = discountPercentage;
         this.applicableProducts = applicableProducts;
@@ -28,10 +29,10 @@ public class Offer {
 	public void setDiscountPercentage(double discountPercentage) {
 		this.discountPercentage = discountPercentage;
 	}
-	public List<String> getApplicableProducts() {
+	public List<Product> getApplicableProducts() {
 		return applicableProducts;
 	}
-	public void setApplicableProducts(List<String> applicableProducts) {
+	public void setApplicableProducts(List<Product> applicableProducts) {
 		this.applicableProducts = applicableProducts;
 	}
     public boolean isActive() {

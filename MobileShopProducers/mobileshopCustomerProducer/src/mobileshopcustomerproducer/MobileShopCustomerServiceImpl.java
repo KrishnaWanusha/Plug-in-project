@@ -9,7 +9,10 @@ public class MobileShopCustomerServiceImpl implements MobileShopCustomerService 
 	
 	List<Customer> customers = new ArrayList<Customer>();
 	
-	// addCustomerRecord Implementation
+	MobileShopCustomerServiceImpl() {
+		addCustomerRecord("Dulanya", "Homagama", 0113123134);
+		addCustomerRecord("Yasasi", "Homagama", 0112331451);
+	}
 	
 	@Override
 	public synchronized void addCustomerRecord(String name, String address, int phnNumber) {
@@ -32,21 +35,28 @@ public class MobileShopCustomerServiceImpl implements MobileShopCustomerService 
 	public void viewCustomerDetails() {
 	    System.out.println(" ___________________________________________________________");
 	    System.out.println("|                                                           |");
-	    System.out.println("|              M O B I L E S H O P              |");
-	    System.out.println("|           CUSTOMER DETAILS              |");
+	    System.out.println("|                  M O B I L E S H O P                      |");
+	    System.out.println("|                    CUSTOMER DETAILS                       |");
 	    System.out.println("|___________________________________________________________|");
 
-	    System.out.println(" ________________________________________");
-	    System.out.println("|    ID   |    Name    |   Address   | Phone Number |");
-	    System.out.println("|_________|____________|_____________|______________|");
+	    System.out.println(" ___________________________________________________");
+	    System.out.println("|    ID   |    Name     |    Address     | Phone Number  |");
+	    System.out.println("|_________|_____________|________________|_______________|");
 
-	    // Assuming you have a list of Customer objects called customers
 	    for (Customer customer : customers) {
-	        System.out.printf("|  %-6d |  %-10s |  %-15s |  %-12d |\n",
-	                customer.getCname(), customer.getAdress(), customer.getPhnNumber());
+	        System.out.printf("|  %-6d |  %-10s |  %-13s |  %-12d |\n",
+	        		customer.getCustomerid(), customer.getCname(), customer.getAdress(), customer.getPhnNumber());
 	    }
 
-	    System.out.println("|_________|____________|_____________|______________|");
+	    System.out.println("|_________|_____________|________________|_______________|");
 	}
 
+	public Customer getCustomerById(int id) {
+		for (Customer customer: customers) {
+			if (customer.getCustomerid() == id) {
+				return customer;
+			}
+		}
+		return null;
+	}
 }

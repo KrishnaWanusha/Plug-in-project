@@ -2,20 +2,24 @@ package mobileshopofferproducer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import mobileshopproductproducer.MobileShopProductService;
+import productmodel.Product;
 
 import offermodel.Offer;
 
 public class MobileShopOfferServiceImpl implements MobileShopOfferService{
 	
-List<Offer> offers = new ArrayList<Offer>();
+	List<Offer> offers = new ArrayList<Offer>();
 	
-	public MobileShopOfferServiceImpl() {
-		addOffer( 10.0, List.of("iPhone X", "Iphone 15 Pro"), true);
-        addOffer( 0.0, List.of("Android"), false);
+	public MobileShopOfferServiceImpl(MobileShopProductService mobileShopProductService) {
+		addOffer(5.0, Collections.singletonList(mobileShopProductService.getProductById(1)), true);
+		addOffer(2.0, Collections.singletonList(mobileShopProductService.getProductById(2)), false);
 	}
-	
-	public void addOffer( double discountPercentage, List<String> applicableProducts, boolean active) {        
+
+	public void addOffer(double discountPercentage, List<Product> applicableProducts, boolean active) {        
         if (!offers.isEmpty()) {
         	Offer lastOffer = offers.get(offers.size() - 1);
 	        int offerId = lastOffer.getOfferId() + 1;
@@ -28,19 +32,30 @@ List<Offer> offers = new ArrayList<Offer>();
     }
 	
 	public void viewAllOffers() {
-        System.out.println(" _________________________________________________________________");
-        System.out.println("|                                                                 |");
-        System.out.println("|                    M O B I L E S H O P                          |");
-        System.out.println("|                      All OFFERS LIST                            |");
-        System.out.println("|_________________________________________________________________|");
-        System.out.println("|   ID   |   Discount (%)  |    Applicable Products   |  Active   |");
-        System.out.println("|________|_________________|__________________________|___________|");
-        for (Offer offer : offers) {
-            System.out.printf("|  %-5d |    %-12.2f |  %-20s   |   %-6b |\n", offer.getOfferId(), offer.getDiscountPercentage(),
-                    String.join(", ", offer.getApplicableProducts()), offer.isActive());
-        }
-        System.out.println("|________|_________________|__________________________|__________|");
-    }
+	    System.out.println(" _________________________________________________________________");
+	    System.out.println("|                                                                 |");
+	    System.out.println("|                    M O B I L E S H O P                          |");
+	    System.out.println("|                      All OFFERS LIST                            |");
+	    System.out.println("|_________________________________________________________________|");
+
+	    System.out.println(" ___________________________________________________________________");
+	    System.out.println("|   ID   |   Discount (%)  |    Applicable Products     |  Active   |");
+	    System.out.println("|________|_________________|____________________________|___________|");
+
+	    for (Offer offer : offers) {
+	        StringBuilder productsString = new StringBuilder();
+	        for (Product product : offer.getApplicableProducts()) {
+	            productsString.append(product.getBrand()).append(" ").append(product.getModel()).append(", ");
+	        }
+	        String applicableProducts = productsString.toString();
+	        if (!applicableProducts.isEmpty()) {
+	            applicableProducts = applicableProducts.substring(0, applicableProducts.length() - 2);
+	        }
+	        System.out.printf("|  %-5d |    %-12.2f |  %-25s |   %-6b |\n", offer.getOfferId(), offer.getDiscountPercentage(),
+	                applicableProducts, offer.isActive());
+	    }
+	    System.out.println("|________|_________________|____________________________|__________|");
+	}
 	
 	public void viewActiveOffers() {
 	    System.out.println(" ___________________________________________________________________");
@@ -48,15 +63,25 @@ List<Offer> offers = new ArrayList<Offer>();
 	    System.out.println("|                M O B I L E S H O P                                |");
 	    System.out.println("|                ACTIVE OFFERS LIST                                 |");
 	    System.out.println("|___________________________________________________________________|");
-	    System.out.println("|   ID   |   Discount (%)  |     Applicable Products     |  Active  |");
-	    System.out.println("|________|_________________|_____________________________|__________|");
+
+	    System.out.println(" ___________________________________________________________________");
+	    System.out.println("|   ID   |   Discount (%)  |    Applicable Products     |  Active   |");
+	    System.out.println("|________|_________________|____________________________|___________|");
 	    for (Offer offer : offers) {
 	        if (offer.isActive()) {
-	            System.out.printf("|  %-5d |    %-12.2f |  %-20s   |   %-6b |\n", offer.getOfferId(), offer.getDiscountPercentage(),
-	                    String.join(", ", offer.getApplicableProducts()), offer.isActive());
+	            StringBuilder productsString = new StringBuilder();
+	            for (Product product : offer.getApplicableProducts()) {
+	                productsString.append(product.getBrand()).append(" ").append(product.getModel()).append(", ");
+	            }
+	            String applicableProducts = productsString.toString();
+	            if (!applicableProducts.isEmpty()) {
+	                applicableProducts = applicableProducts.substring(0, applicableProducts.length() - 2);
+	            }
+	            System.out.printf("|  %-5d |    %-12.2f |  %-25s |   %-6b |\n", offer.getOfferId(), offer.getDiscountPercentage(),
+	                    applicableProducts, offer.isActive());
 	        }
 	    }
-	    System.out.println("|________|_________________|_____________________________|__________|");
+	    System.out.println("|________|_________________|____________________________|__________|");
 	}
 
 	public void updateDiscountPercentage(int offerId, double discountPercentage) {
@@ -98,15 +123,14 @@ List<Offer> offers = new ArrayList<Offer>();
 		return null;
 	}
 	
-	public double checkDiscountForProducts(String applicableProductsString) {
-	    String[] applicableProductsArray = applicableProductsString.split("\\s*,\\s*"); 
-	    List<String> applicableProductsList = Arrays.asList(applicableProductsArray); 
+	public double checkDiscountForProducts(Product applicableProduct) {
 	    for (Offer offer : offers) {
-	        if (offer.isActive() && offer.getApplicableProducts().containsAll(applicableProductsList)) {
+	        List<Product> offerApplicableProducts = offer.getApplicableProducts();
+	        if (offer.isActive() && offerApplicableProducts.contains(applicableProduct)) {
 	            return offer.getDiscountPercentage();
 	        }
 	    }
-	    return 0.0; 
+	    return 0;
 	}
 
 	
