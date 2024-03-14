@@ -39,7 +39,7 @@ public class MobileShopCustomerServiceImpl implements MobileShopCustomerService 
 	    System.out.println("|                    CUSTOMER DETAILS                       |");
 	    System.out.println("|___________________________________________________________|");
 
-	    System.out.println(" ___________________________________________________");
+	    System.out.println(" ________________________________________________________");
 	    System.out.println("|    ID   |    Name     |    Address     | Phone Number  |");
 	    System.out.println("|_________|_____________|________________|_______________|");
 
